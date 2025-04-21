@@ -36,7 +36,9 @@ class AuthorCreateView(CreateView):
     fields = ["first_name", "last_name", "age", "national_id"]
 
     template_name = "app/add_author_form.html"
-    success_url = reverse_lazy("home")
+
+    def get_success_url(self):
+        return reverse("author_detail", kwargs={"pk": self.object.id})
 
 
 class AuthorUpdateView(UpdateView):
@@ -44,7 +46,9 @@ class AuthorUpdateView(UpdateView):
     fields = ["first_name", "last_name", "age", "national_id"]
     context_object_name = "author"
     template_name = "app/edit_author_form.html"
-    success_url = reverse_lazy("home")
+
+    def get_success_url(self):
+        return reverse("author_detail", kwargs={"pk": self.object.id})
 
 
 class AuthorDeleteView(DeleteView):
