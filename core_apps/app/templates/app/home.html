@@ -1,0 +1,18 @@
+{% extends "base.html" %} {% block title %}authors{% endblock title %} fillerrr
+{% block content %}
+<section>
+  <a href="{% url 'add_author' %}">Add author</a>
+  {% for author in authors %}
+  <article class="gridrow">
+    <p>{{author.first_name}}</p>
+    <p>{{author.last_name}}</p>
+    <p>{{author.age}}</p>
+    <p>{{author.national_id}}</p>
+    {% comment %}
+    <button><a href="{% url 'author-detail' author.id %}">Details</a></button>
+    {% endcomment %}
+  </article>
+
+  {% endfor %}
+</section>
+{% endblock content %}

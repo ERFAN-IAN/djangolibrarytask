@@ -1,0 +1,8 @@
+.flexrow {
+  display: flex;
+  flex-direction: row;
+  color: red;
+}
+body {
+  background-color: red;
+}
